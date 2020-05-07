@@ -1,17 +1,305 @@
 body, html {
   font-family: "Roboto", sans-serif;
-  background: linear-gradient(to bottom, #87e0fd 0%,#53cbf1 40%,#05abe0 100%);
+  background: rgb(95%, 95%, 95%);
   height: 100%;
 }
 
-.logo {
-  background-image: url('img/doggo.jpg');
-  width: 100px;
-  height: 100px;
-  background-repeat: no-repeat;
-  background-size: contain;
+h1 {
+  font-family: 'Comfortaa', cursive;
+  font-weight: 100;
+  color: teal;
+  font-size: 1.8rem;
 }
 
-.active {
-  color: pink;
+.nav-elem {
+  text-decoration: none;
+  color: black;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 3vh;
+  list-style: none;
+}
+
+.filter-input {
+  height: 36px;
+  font-size: 0.9em;
+  border: 2px solid teal;
+  background-color: rgb(95%, 95%, 95%);
+}
+
+.filter-input:focus, #search-button:focus {
+  outline: none;
+}
+
+#search-button {
+  border: 2px solid teal;
+  border-left: none;
+  color: teal;
+  font-size: 1.4em;
+  padding-top: 2px;
+  padding-bottom: 9px;
+  margin-right: 10px;
+  background-color: rgb(95%, 95%, 95%);
+}
+
+#search-button:hover {
+  background-color: teal;
+  color: white;
+}
+
+#search-icon {
+  margin-bottom: -8px;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+}
+
+.posts-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -3rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid teal;
+}
+
+.post-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -3rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid teal;
+  font-size: 1.2rem;
+  color: black;
+  font-family: 'Comfortaa', cursive;
+  font-weight: 200;
+  font-size: 1.4rem;
+}
+
+.posts-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
+h2 {
+  font-family: 'Comfortaa', cursive;
+  font-weight: 200;
+  font-size: 1.6rem;
+}
+
+.post-link {
+  text-decoration: none;
+  color: black;
+}
+
+.post-display {
+  padding-top: 0px;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  margin-bottom: 2vh;
+}
+
+.post-display:hover {
+  /* Shadow sytling taken from W3Schools box shadow tutorial page */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.display-image {
+  object-fit: cover;
+}
+
+.display-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -20px;
+  background-color: white;
+}
+
+.display-tags {
+  display: flex;
+  flex-direction: row;
+  font-size: 0.9em;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.display-title {
+  margin-bottom: -30px;
+  font-size: 1.5em;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-fixed {
+  align-self: center;
+}
+
+.post-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 2vw;
+  padding-right: 2vw;
+}
+
+.tags-row {
+  display: flex;
+  flex-direction: row;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  font-size: 0.9em;
+  color: grey;
+}
+
+.tag {
+  background-color: rgb(90%, 90%, 90%);
+  padding: 6px;
+  border-radius: 15px;
+  margin: 5px;
+}
+
+.cover-image {
+  margin: -20px;
+}
+
+.post-edit {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.short-input {
+  align-self: center;
+  width: 80%;
+  height: 30px;
+  font-size: 0.8em;
+  margin-bottom: 20px;
+}
+
+.tall-input {
+  align-self: center;
+  width: 80%;
+  height: 80px;
+  font-size: 0.8em;
+  margin-bottom: 20px;
+}
+
+.input-title {
+  margin-left: 10%;
+  margin-bottom: 3px;
+  font-size: 0.9em;
+}
+
+.new-post {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.error-message {
+  margin-left: 40px;
+  margin-bottom: 10px;
+  font-size: 2rem;
+  color: red;
+}
+
+.error-text {
+  margin-left: 40px;
+  margin-bottom: 10px;
+}
+
+#not-filled-text {
+  margin-left: 5vw;
+  margin-bottom: 20px;
+  color: red;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+
+.new-button {
+  font-size: 1em;
+  color: teal;
+  border-style: solid;
+  border-width: 2px;
+  border-color: teal;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 30px;
+  margin-right: 5vw;
+  background-color: rgb(95%, 95%, 95%);
+}
+
+.add-button {
+  align-self: center;
+  width: 80%;
+  font-size: 1em;
+  color: teal;
+  border-style: solid;
+  border-width: 2px;
+  border-color: teal;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: rgb(95%, 95%, 95%);
+}
+
+.footer-button {
+  font-size: 1em;
+  color: teal;
+  border-style: solid;
+  border-width: 2px;
+  border-color: teal;
+  border-radius: 5px;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  padding: 10px;
+  background-color: rgb(95%, 95%, 95%);
+}
+
+.error-button {
+  font-size: 0.8em;
+  border-radius: 5px;
+  margin-left: 40px;
+  padding: 10px;
+  background-color: rgb(95%, 95%, 95%);
+}
+
+.footer-button:hover, .new-button:hover, .add-button:hover {
+  /* Shadow sytling taken from W3Schools box shadow tutorial page */
+  box-shadow: 0 4px 8px 0 rgba(0, 128, 128, 0.2), 0 6px 20px 0 rgba(0, 128, 128, 0.19);
+  background-color: teal;
+  color: white;
+}
+
+.footer-button:focus, .new-button:focus, .add-button:focus {
+  outline: none;
 }
