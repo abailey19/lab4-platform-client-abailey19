@@ -5,6 +5,7 @@
 For this lab, I created an Redux platform that allows users to create, update, and delete blog posts with Markdown formatting.
 
 What didn't work: I initially tried setting up all the Redux functionality at once, and mistakes I made in one area would be repeated in another.
+
 What worked: I then decided to create a slightly more useable UI and just get fetching all posts to work. I then moved to fetching a single post, then deleting a post, and finally updating a post. This helped me implement things I learned with each CRUD action in the next one I worked on.
 
 ### Extra credit
