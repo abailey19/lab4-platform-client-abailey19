@@ -2,7 +2,7 @@
 ## CS 52, Lab 4: Redux Blog
 
 ### The lab
-For this lab, I created an Redux platform that allows users to create, update, and delete blog posts with Markdown formatting. It is deployed on <annebailey-placesblog.surge.sh>
+For this lab, I created an Redux platform that allows users to create, update, and delete blog posts with Markdown formatting. It is deployed on http://annebailey-placesblog.surge.sh.
 
 What didn't work: I initially tried setting up all the Redux functionality at once, and mistakes I made in one area would be repeated in another.
 
