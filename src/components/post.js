@@ -18,6 +18,7 @@ class Post extends React.Component {
       tags: props.post.tags,
       content: props.post.content,
       coverUrl: props.post.coverUrl,
+      notFilledMessage: '',
     };
   }
 
@@ -43,14 +44,21 @@ class Post extends React.Component {
 
   submit = () => {
     if (this.state.isEditing) {
-      this.props.updatePost(this.props.match.params.postID, {
-        title: this.state.title,
-        tags: this.state.tags,
-        content: this.state.content,
-        coverUrl: this.state.coverUrl,
-      });
+      if (this.state.title === '' || this.state.tags === '' || this.state.content === '' || this.state.coverUrl === '') {
+        this.setState({ notFilledMessage: 'Oops! Looks like not all the fields are filled.' });
+      } else {
+        this.setState({ notFilledMessage: '' });
+        this.props.updatePost(this.props.match.params.postID, {
+          title: this.state.title,
+          tags: this.state.tags,
+          content: this.state.content,
+          coverUrl: this.state.coverUrl,
+        });
+        this.setState((prevState) => ({ isEditing: !prevState.isEditing }));
+      }
+    } else {
+      this.setState((prevState) => ({ isEditing: !prevState.isEditing }));
     }
-    this.setState((prevState) => ({ isEditing: !prevState.isEditing }));
   }
 
   delete = () => {
@@ -76,6 +84,7 @@ class Post extends React.Component {
     if (this.state.isEditing && this.props.post.title) {
       return (
         <div className="post-edit">
+          <div id="not-filled-text">{this.state.notFilledMessage}</div>
           <div className="input-title">Title</div>
           <input className="short-input" defaultValue={this.props.post.title} onBlur={this.changeTitle} />
           <div className="input-title">Tags</div>
