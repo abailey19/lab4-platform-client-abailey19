@@ -14,10 +14,12 @@ class Post extends React.Component {
 
     this.state = {
       isEditing: false,
+      isCommenting: false,
       title: props.post.title,
       tags: props.post.tags,
       content: props.post.content,
       coverUrl: props.post.coverUrl,
+      newComment: '',
       notFilledMessage: '',
     };
   }
@@ -31,7 +33,7 @@ class Post extends React.Component {
   }
 
   changeTags = (event) => {
-    this.setState({ tags: event.target.value });
+    this.setState({ tags: event.target.value.split(/[ ,]+/) });
   }
 
   changeContent = (event) => {
@@ -40,6 +42,16 @@ class Post extends React.Component {
 
   changeCoverUrl = (event) => {
     this.setState({ coverUrl: event.target.value });
+  }
+
+  changeComment = (event) => {
+    this.setState({ newComment: event.target.value });
+  }
+
+  clearComments = () => {
+    this.props.updatePost(this.props.match.params.postID, {
+      comments: null,
+    });
   }
 
   submit = () => {
@@ -61,6 +73,23 @@ class Post extends React.Component {
     }
   }
 
+  comment = () => {
+    if (this.state.isCommenting && this.state.newComment !== '') {
+      if (this.props.post.comments) {
+        this.props.updatePost(this.props.match.params.postID, {
+          comments: [...this.props.post.comments, this.state.newComment],
+        });
+        this.setState({ newComment: '' });
+      } else {
+        this.props.updatePost(this.props.match.params.postID, {
+          comments: [this.state.newComment],
+        });
+        this.setState({ newComment: '' });
+      }
+    }
+    this.setState((prevState) => ({ isCommenting: !prevState.isCommenting }));
+  }
+
   delete = () => {
     this.props.deletePost(this.props.post.id, this.props.history);
   }
@@ -68,7 +97,7 @@ class Post extends React.Component {
   renderTags = () => {
     let tagArray;
     if (this.props.post.tags) {
-      tagArray = this.props.post.tags.split(', ');
+      tagArray = this.props.post.tags;
     } else {
       tagArray = [];
     }
@@ -78,6 +107,19 @@ class Post extends React.Component {
         <div key={i}>#{tag} &nbsp;</div>
       );
     });
+  }
+
+  renderComments = () => {
+    if (this.props.post.comments) {
+      return this.props.post.comments.map((comment, i) => {
+        return (
+          // eslint-disable-next-line react/no-array-index-key
+          <div key={i} className="comment">{comment}</div>
+        );
+      });
+    } else {
+      return null;
+    }
   }
 
   renderBody = () => {
@@ -106,6 +148,14 @@ class Post extends React.Component {
           <div className="tags-row">
             {this.renderTags()}
           </div>
+          <div className="comment-header">Comments</div>
+          <div className="comments">
+            {this.renderComments()}
+            {this.state.isCommenting
+              && (
+                <input className="short-input" value={this.state.newComment} onChange={this.changeComment} />
+              )}
+          </div>
         </div>
       );
     }
@@ -132,11 +182,20 @@ class Post extends React.Component {
         <div className="post">
           {this.renderBody()}
           <footer>
-            <button className="footer-button"
-              onClick={this.submit}
-            >{this.state.isEditing ? 'Finish' : 'Edit Post'}
-            </button>
-            <button className="footer-button" onClick={this.delete}>Delete Post</button>
+            <div className="footer-section">
+              <button className="footer-button"
+                onClick={this.comment}
+              >{this.state.isCommenting ? 'Finish' : 'Comment'}
+              </button>
+              <button className="footer-button" onClick={this.clearComments}>Clear Comments</button>
+            </div>
+            <div className="footer-section">
+              <button className="footer-button"
+                onClick={this.submit}
+              >{this.state.isEditing ? 'Finish' : 'Edit Post'}
+              </button>
+              <button className="footer-button" onClick={this.delete}>Delete Post</button>
+            </div>
           </footer>
         </div>
       );

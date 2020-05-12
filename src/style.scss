@@ -37,7 +37,6 @@ h1 {
 
 #search-button {
   border: 2px solid teal;
-  border-left: none;
   color: teal;
   font-size: 1.4em;
   padding-top: 2px;
@@ -220,6 +219,26 @@ h2 {
   width: 80%;
 }
 
+.comment-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  // border-bottom: 2px solid teal;
+  font-size: 1.2rem;
+  color: black;
+  font-family: 'Comfortaa', cursive;
+  font-weight: 200;
+  font-size: 1.3rem;
+}
+
+.comment {
+  margin-bottom: 5px;
+}
+
 .error-message {
   margin-left: 40px;
   margin-bottom: 10px;
@@ -241,8 +260,15 @@ h2 {
 footer {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
   margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .new-button {
@@ -279,8 +305,8 @@ footer {
   border-width: 2px;
   border-color: teal;
   border-radius: 5px;
-  margin-left: 3rem;
-  margin-right: 3rem;
+  margin-left: 20px;
+  margin-right: 20px;
   padding: 10px;
   background-color: rgb(95%, 95%, 95%);
 }
@@ -303,3 +329,4 @@ footer {
 .footer-button:focus, .new-button:focus, .add-button:focus {
   outline: none;
 }
+

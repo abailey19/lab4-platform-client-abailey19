@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import marked from 'marked';
 
 const renderTags = (tags) => {
-  const tagArray = tags.split(', ');
+  const tagArray = tags;
   return tagArray.map((tag, i) => {
     return (
       // eslint-disable-next-line react/no-array-index-key

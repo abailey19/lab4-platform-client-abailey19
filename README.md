@@ -15,4 +15,5 @@ Input validation: If a user leaves a field empty when adding a post or updating 
 
 Filtering posts: A search bar allows users to filter posts by tag. 
 
-
+## Lab 5: Platform API
+For the second part of this lab, I build a backend for the blog using express and MongoDB. The backend code can be found here: https://github.com/dartmouth-cs52-20S/lab5-platform-api-abailey19 and is deployed to http://abailey-blog.herokuapp.com/api. I also added a comments feature, so that users can comment on each post.

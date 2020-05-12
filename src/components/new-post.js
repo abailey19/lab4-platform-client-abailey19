@@ -23,7 +23,7 @@ class NewPost extends React.Component {
   }
 
   changeTags = (event) => {
-    this.setState({ tags: event.target.value });
+    this.setState({ tags: event.target.value.split(/[ ,]+/) });
   }
 
   changeContent = (event) => {
@@ -38,7 +38,13 @@ class NewPost extends React.Component {
     if (this.state.title === '' || this.state.tags === '' || this.state.content === '' || this.state.coverUrl === '') {
       this.setState({ notFilledMessage: 'Oops! Looks like not all the fields are filled.' });
     } else {
-      const post = this.state;
+      const post = {
+        title: this.state.title,
+        tags: this.state.tags,
+        content: this.state.content,
+        coverUrl: this.state.coverUrl,
+        comments: null,
+      };
       this.props.createPost(post, this.props.history);
     }
   }
