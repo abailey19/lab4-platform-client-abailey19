@@ -70,7 +70,7 @@ h1 {
   border-bottom: 2px solid teal;
 }
 
-.post-title {
+.post-header {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -79,11 +79,20 @@ h1 {
   margin-right: 5rem;
   margin-bottom: 2rem;
   border-bottom: 2px solid teal;
-  font-size: 1.2rem;
+  // font-size: 1.2rem;
   color: black;
   font-family: 'Comfortaa', cursive;
   font-weight: 200;
   font-size: 1.4rem;
+}
+
+.post-title {
+  font-size: 1.4rem;
+}
+
+.author {
+  margin-top: -1.5rem;
+  font-size: 1.1rem;
 }
 
 .posts-content {
@@ -212,11 +221,17 @@ h2 {
   font-size: 0.9em;
 }
 
-.new-post {
+.new-post, .signup, .signin {
   align-self: center;
   display: flex;
   flex-direction: column;
   width: 80%;
+}
+
+.signin-header {
+  font-size: 1.5rem;
+  margin-left: 8vw;
+  margin-bottom: 10px;
 }
 
 .comment-header {
@@ -284,6 +299,19 @@ footer {
   background-color: rgb(95%, 95%, 95%);
 }
 
+.auth-button {
+  font-size: 1em;
+  color: teal;
+  border-style: solid;
+  border-width: 2px;
+  border-color: teal;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 30px;
+  margin-right: 1vw;
+  background-color: rgb(95%, 95%, 95%);
+}
+
 .add-button {
   align-self: center;
   width: 80%;
@@ -319,14 +347,14 @@ footer {
   background-color: rgb(95%, 95%, 95%);
 }
 
-.footer-button:hover, .new-button:hover, .add-button:hover {
+.footer-button:hover, .new-button:hover, .add-button:hover, .auth-button:hover {
   /* Shadow sytling taken from W3Schools box shadow tutorial page */
   box-shadow: 0 4px 8px 0 rgba(0, 128, 128, 0.2), 0 6px 20px 0 rgba(0, 128, 128, 0.19);
   background-color: teal;
   color: white;
 }
 
-.footer-button:focus, .new-button:focus, .add-button:focus {
+.footer-button:focus, .new-button:focus, .add-button:focus, .auth-button:focus {
   outline: none;
 }
 

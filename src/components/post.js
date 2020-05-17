@@ -140,7 +140,10 @@ class Post extends React.Component {
     } else {
       return (
         <div className="post-fixed">
-          <div className="post-title" dangerouslySetInnerHTML={{ __html: marked(this.props.post.title || '') }} />
+          <div className="post-header">
+            <div className="post-title" dangerouslySetInnerHTML={{ __html: marked(this.props.post.title || '') }} />
+            <div className="author">by {this.props.post.author ? this.props.post.author.username : ''}</div>
+          </div>
           <div className="post-body">
             <div className="cover-image" dangerouslySetInnerHTML={{ __html: marked(`![](${this.props.post.coverUrl})` || '') }} />
             <div className="post-content" dangerouslySetInnerHTML={{ __html: marked(this.props.post.content || '') }} />
