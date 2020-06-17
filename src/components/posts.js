@@ -14,7 +14,8 @@ class Posts extends React.Component {
 
   renderPosts = () => {
     return this.props.posts.map((post) => {
-      if (this.props.filter === '') {
+      // Getting rid of TA's test post - sorry TA
+      if (this.props.filter === '' && post.title !== 'hello from a ta') {
         return (
           <PostDisplay key={post.id} id={post.id} title={post.title} tags={post.tags} coverUrl={post.coverUrl} />
         );
